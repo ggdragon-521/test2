@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="screen-orientation" content="portrait/landscape">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+</head>
+<style>
+*{margin:0;padding:0;}
+ul{list-style:none;display:block;}
+li{display:block;}
+#fastNav{ position:fixed; z-index:6; bottom:1.6em; right:50%; opacity:0; -webkit-transition:opacity 1s; -moz-transition:opacity 1s; -ms-transition:opacity 1s; -o-transition: opacity 1s; transition:opacity 1s; pointer-events:none; width:3.5em; height:3.5em; z-index:1;}
+#fastNav .btns{ width:100%; height:100%; position:relative; z-index:2;}
+#fastNav .btns .btn{ display:block; width:100%; height:100%; background:#00a696; position:relative; border-radius:5em; -webkit-transition:-webkit-transform 0.5s; -moz-transition:-moz-transform 0.5s; -ms-transition:-ms-transform 0.5s; -o-transition:-o-transform 0.5s; transition:transform 0.5s;}
+#fastNav .btns .btn i{ -webkit-transition:opacity 0.5s; -moz-transition:opacity 0.5s; -ms-transition:opacity 0.5s; -o-transition:opacity 0.5s; transition:opacity 0.5s;}
+#fastNav .btns .btn i:nth-child(1){ display:block; width:0.4em; height:0.4em; border-radius:0.4em; background:#fff; position:absolute; left:50%; top:50%; margin:-0.2em 0 0 -0.2em;}
+#fastNav .btns .btn i:nth-child(1)::before{ display:block; content:''; width:0.4em; height:0.4em; border-radius:0.4em; background:#fff; position:absolute; left:-0.7em; top:0;}
+#fastNav .btns .btn i:nth-child(1)::after{ display:block; content:''; width:0.4em; height:0.4em; border-radius:0.4em; background:#fff; position:absolute; left:0.7em; top:0;}
+
+#fastNav .btns .btn i:nth-child(2){ display:block; width:1.6em; height:1.6em; position:absolute; left:50%; top:50%; margin:-0.8em 0 0 -0.8em; opacity:0;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-ms-transform:rotate(-45deg);-o-transform:rotate(-45deg);transform:rotate(-45deg);}
+#fastNav .btns .btn i:nth-child(2)::before{ display:block; content:''; position:absolute; height:0.2em; top:50%; left:0; right:0;bottom:0; margin-top:-0.1em; background:#fff;}
+#fastNav .btns .btn i:nth-child(2)::after{ display:block; content:''; position:absolute; width:0.2em; top:0; bottom:0; left:50%; margin-left:-0.1em; background:#fff;}
+
+#fastNav .list{ width:100%; height:100%; position:absolute; left:0; top:0; z-index:1;}
+#fastNav .list ul{ width:100%; height:100%; position:relative;}
+#fastNav .list ul li{ width:100%; height:100%; position:absolute;}
+#fastNav .list ul li .btn{ display:block; width:100%; height:100%; position:relative; background:#00a696; border-radius:3em;}
+#fastNav .list ul li .btn i{ display:block; width:2.6em; height:2.6em; position:absolute; left:50%; top:50%; margin:-1.3em 0 0 -1.3em; text-align:center}
+#fastNav .list ul li .btn svg{ display:block; width:100%; height:100%; fill:#fff;}
+#fastNav .list ul li .btn.disable svg{ fill:rgba(255,255,255,0.3);}
+#fastNav .list ul li .btn i small{ font-size:1.6em; color:#fff; line-height:1.625em; font-style:normal}
+
+
+#fastNav .list ul li:nth-child(1){ -webkit-transform:translate(0,0); -moz-transform:translate(0,0); -ms-transform:translate(0,0); -o-transform:translate(0,0); transform:translate(0,0); -webkit-transition:-webkit-transform 0.5s 0.53s; -moz-transition:-moz-transform 0.5s 0.53s; -ms-transition:-ms-transform 0.5s 0.53s; -o-transition:-o-transform 0.5s 0.53s; transition:transform 0.5s 0.53s;}
+#fastNav .list ul li:nth-child(2){ -webkit-transform:translate(0,0); -moz-transform:translate(0,0); -ms-transform:translate(0,0); -o-transform:translate(0,0); transform:translate(0,0); -webkit-transition:-webkit-transform 0.5s 0.45s; -moz-transition:-moz-transform 0.5s 0.45s; -ms-transition:-ms-transform 0.5s 0.45s; -o-transition:-o-transform 0.5s 0.45s; transition:transform 0.5s 0.45s;}
+#fastNav .list ul li:nth-child(3){ -webkit-transform:translate(0,0); -moz-transform:translate(0,0); -ms-transform:translate(0,0); -o-transform:translate(0,0); transform:translate(0,0); -webkit-transition:-webkit-transform 0.5s 0.35s; -moz-transition:-moz-transform 0.5s 0.35s; -ms-transition:-ms-transform 0.5s 0.35s; -o-transition:-o-transform 0.5s 0.35s; transition:transform 0.5s 0.35s;}
+#fastNav .list ul li:nth-child(4){ -webkit-transform:translate(0,0); -moz-transform:translate(0,0); -ms-transform:translate(0,0); -o-transform:translate(0,0); transform:translate(0,0); -webkit-transition:-webkit-transform 0.5s 0.35s; -moz-transition:-moz-transform 0.5s 0.35s; -ms-transition:-ms-transform 0.5s 0.35s; -o-transition:-o-transform 0.5s 0.35s; transition:transform 0.5s 0.35s;}
+#fastNav .list ul li:nth-child(5){ -webkit-transform:translate(0,0); -moz-transform:translate(0,0); -ms-transform:translate(0,0); -o-transform:translate(0,0); transform:translate(0,0); -webkit-transition:-webkit-transform 0.5s 0.35s; -moz-transition:-moz-transform 0.5s 0.35s; -ms-transition:-ms-transform 0.5s 0.35s; -o-transition:-o-transform 0.5s 0.35s; transition:transform 0.5s 0.35s;}
+
+#fastNav.open .btns .btn{ -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); -ms-transform:rotate(90deg); -o-transform:rotate(90deg); transform:rotate(90deg);}
+#fastNav.open .btns .btn i:nth-child(1){ opacity:0;}
+#fastNav.open .btns .btn i:nth-child(2){ opacity:1;}
+
+#fastNav.open .list ul li:nth-child(1){ -webkit-transform:translate(-11em,0); -moz-transform:translate(-11em,0); -ms-transform:translate(-11em,0); -o-transform:translate(-11em,0); transform:translate(-11em,0); -webkit-transition:-webkit-transform 0.5s; -moz-transition:-moz-transform 0.5s; -ms-transition:-ms-transform 0.5s; -o-transition:-o-transform 0.5s; transition:transform 0.5s;}
+#fastNav.open .list ul li:nth-child(2){ -webkit-transform:translate(-10em,-4em); -moz-transform:translate(-10em,-4em); -ms-transform:translate(-10em,-4em); -o-transform:translate(-10em,-4em); transform:translate(-10em,-4em); -webkit-transition:-webkit-transform 0.5s 0.2s; -moz-transition:-moz-transform 0.5s 0.2s; -ms-transition:-ms-transform 0.5s 0.2s; -o-transition:-o-transform 0.5s 0.2s; transition:transform 0.5s 0.2s;}
+#fastNav.open .list ul li:nth-child(3){ -webkit-transform:translate(-7.5em,-7.5em); -moz-transform:translate(-7.5em,-7.5em); -ms-transform:translate(-7.5em,-7.5em); -o-transform:translate(-7.5em,-7.5em); transform:translate(-7.5em,-7.5em); -webkit-transition:-webkit-transform 0.5s 0.35s; -moz-transition:-moz-transform 0.5s 0.35s; -ms-transition:-ms-transform 0.5s 0.35s; -o-transition:-o-transform 0.5s 0.35s; transition:transform 0.5s 0.35s;}
+
+#fastNav.open .list ul li:nth-child(4){ -webkit-transform:translate(-4em,-10em); -moz-transform:translate(-4em,-10em); -ms-transform:translate(-4em,-10em); -o-transform:translate(-4em,-10em); transform:translate(-4em,-10em); -webkit-transition:-webkit-transform 0.5s 0.35s; -moz-transition:-moz-transform 0.5s 0.35s; -ms-transition:-ms-transform 0.5s 0.35s; -o-transition:-o-transform 0.5s 0.35s; transition:transform 0.5s 0.35s;}
+
+#fastNav.open .list ul li:nth-child(5){ -webkit-transform:translate(0em,-11em); -moz-transform:translate(0em,-11em); -ms-transform:translate(0em,-11em); -o-transform:translate(0em,-11em); transform:translate(0em,-11em); -webkit-transition:-webkit-transform 0.5s 0.35s; -moz-transition:-moz-transform 0.5s 0.35s; -ms-transition:-ms-transform 0.5s 0.35s; -o-transition:-o-transform 0.5s 0.35s; transition:transform 0.5s 0.35s;}
+
+#fastNav.show{ opacity:1; pointer-events:auto;}
+
+</style>
+<body>
+    <!--右下角按钮-->
+        <div id="fastNav" class="show">
+            <div class="btns">
+                <a href="javascript:showBtnNav();" class="btn"><i></i><i></i></a>
+            </div>
+            <div class="list">
+                <ul>
+                    <li><a href="javascript:showlaw();" class="btn"><i><small>免</small></i></a></li>
+                    <li><a href="tel:021-62990600" class="btn"><i><svg><use xlink:href="#icon_telephone_1" /></svg></i></a></li>
+                    <li><a href="javascript:showResign();" class="btn"><i><svg><use xlink:href="#icon_resign_1" /></svg></i></a></li>
+                    <li><a href="javascript:navGo(4);" class="btn"><i><svg><use xlink:href="#icon_location_1" /></svg></i></a></li><!--没有的加disable类-->
+                     <li><a href="javascript:showewm();" class="btn"><i><svg><use xlink:href = "#icon_ewm_1"/></svg></i></a></li>
+                </ul>
+            </div>
+           
+
+    </div>
+    <script src="PRselector.js"></script>
+    <script>
+        function showBtnNav(){
+            if($('#fastNav').hasClass('open')){
+                $('#fastNav').removeClass('open');
+            }else{
+                $('#fastNav').addClass('open');
+            }
+        }
+        
+        function start(){
+            mainSwiper = new Swiper ('#main',{
+                loop : false,
+                mode : 'vertical',
+                grabCursor : true,
+                longSwipesRatio : 0.25,
+                paginationClickable : 'true',
+                onSlideReset : function(){
+                  var num = mainSwiper.activeIndex;
+                  $('#fastNav').addClass('show');
+                  $('#fastNav').removeClass('open');
+                }
+                onSlideChange : function(){
+                    var num = mainSwiper.activeIndex;
+                    $('#fastNav').addClass('show');
+                    $('#fastNav').removeClass('open');
+                }
+            })
+        }
+        //判断有没有执行运动
+        if(!this.$el.is(:animate)){
+            this.$el.animate({
+                scrollTop:dest;
+            },speed)
+        }
+        //判断是否已经完成
+        if($(window).scrollTop()! = dest){
+            this.$el.scrollTop(dest);
+        }
+    </script>
+</body>
+</html>
+
+<script>
+    var obj = {a : 1};
+    var copy = Object.assign({},obj);
+    console.log(copy);
+    //继承和不可枚举属性不能拷贝
+    var obj = Object.create({foo:1},{ //foo是可继承属性
+        bar : {
+            value : 2 //bar 是不可枚举属性
+        }，
+        baz : {
+            value : 3
+            enumerable :true //baz:自设可枚举属性。
+        }
+    })
+    //原始类型会被包装为object
+    var v1 = "abc";
+    var v2 = true;
+    var v3 = 10;
+    var v4 = Symbol("foo");
+
+    var obj = Object.assign({},v1,null,v2,undefined,v3,v4);
+    //原始类型会被包装，null和undefined会被忽略。
+    console.log(obj);
+    
+    //node
+    if(path.extname(pathName)===''){
+        if(pathName.charAt(pathName.length-1)!=""){
+
+        }
+    }
+    //检测用户登陆状态
+    
+</script>

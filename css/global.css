@@ -1,0 +1,225 @@
+
+/*加载*/
+.loading{ text-align:center; padding:1em 3em 1em 1.5em;}
+.loading .loaderIcon{ display:inline-block; vertical-align:middle; width:2em; height:2em; position:relative; margin-right:0.8em;}
+.loading .loaderIcon i{ display:block; position:absolute; left:0; right:0; top:0; bottom:0;
+    -webkit-transform-origin:center;
+    -moz-transform-origin:center;
+    -ms-transform-origin:center;
+    -o-transform-origin:center;
+    transform-origin:center;
+    -webkit-animation: loadingRotate 2s linear 0s both infinite;
+    -moz-animation: loadingRotate 2s linear 0s both infinite;
+    -ms-animation: loadingRotate 2s linear 0s both infinite;
+    -o-animation: loadingRotate 2s linear 0s both infinite;
+    animation: loadingRotate 2s linear 0s both infinite;
+}
+.loading .loaderIcon svg{ display:block; width:100%; height:100%; fill:#ccc;}
+.loading::after{ content:'加载中...'; font-size:1.2em;}
+
+@-webkit-keyframes loadingRotate{0%{ -webkit-transform:rotate(0)} 100%{ -webkit-transform:rotate(360deg)}}
+@-moz-keyframes loadingRotate{0%{ -moz-transform:rotate(0)} 100%{ -moz-transform:rotate(360deg)}}
+@-ms-keyframes loadingRotate{0%{ -ms-transform:rotate(0)} 100%{ -ms-transform:rotate(360deg)}}
+@-o-keyframes loadingRotate{0%{ -o-transform:rotate(0)} 100%{ -o-transform:rotate(360deg)}}
+@keyframes loadingRotate{0%{ transform:rotate(0)} 100%{ transform:rotate(360deg)}}
+
+
+/*区域样式*/
+@font-face {
+      font-family: 'newfont';
+      src: url('../fonts/josefinsans-bold-webfont.eot');
+      src: url('../fonts/josefinsans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+           url('../fonts/josefinsans-bold-webfont.woff') format('woff'),
+	   url('../fonts/josefinsans-bold-webfont.ttf') format('truetype'),
+	   url('../fonts/josefinsans-bold-webfont.svg#newfont') format('svg');
+      font-weight: normal;
+      font-style: normal;
+   }
+@font-face{
+      font-family: "newfont";
+	  src:url('/fonts/josefinsans-bold-webfont.eot');
+	  src:url('/fonts/josefinsans-bold-webfont.eot?#iefix') format('embedded-opentype');
+}
+#header{ width:100%; position:fixed; right:0em; top:0em;  z-index:10;}
+#header .btnField{ height:3.5em; position:absolute;  right:0; top:0;opacity:0; z-index:10; -webkit-transition: opacity 1s; -moz-transition: opacity 1s; -ms-transition: opacity 1s; -o-transition: opacity 1s; transition: opacity 1s;}
+#header .videobtn{display:block; width:3.5em; height:3.5em; position:absolute; right:9em; top:0em; padding:0.8em; text-align:center;}
+#header .videobtn span{ display:block; width:100%; height:100%; font-size:1.4em;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box; border:1px solid #fff; border-radius:4em;}
+#header .videobtn span em{ display:block; padding:0.5em; width:1.4em; height:1.4em}
+#header .videobtn span em svg{ display:block; width:100%; height:100%; fill:#fff}
+#header .videobtn .stop{ position:relative;}
+#header .videobtn .stop::after{content:''; position:absolute; top:50%; left:15%;right:15%; width:70%; height:0.15em; background:#fff;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);-o-transform:rotate(45deg);transform:rotate(45deg)}
+
+#header .langbtn{display:block; width:3.5em; height:3.5em; position:absolute; right:4.5em; top:0em; padding:0.8em; text-align:center;}
+#header .langbtn span{ display:block; width:100%; height:100%; font-size:1.4em; color:#fff; line-height:2.5em;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box; border:1px solid #fff; border-radius:4em;}
+
+#header .btnField .menu{ display:block; width:3.5em; height:3.5em; position:absolute; right:0; top:0; padding:0.8em ; cursor:pointer; pointer-events:none; -webkit-transition: background-color 0.5s; -moz-transition: background-color 0.5s; -ms-transition: background-color 0.5s; -o-transition: background-color 0.5s; transition: background-color 0.5s;}
+#header .btnField .menu span{ display:block; position:relative; border:1px solid #fff; border-radius:4em;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box; width:100%; height:100%; -webkit-transition: -webkit-transform 0.5s; -moz-transition: -moz-transform 0.5s; -ms-transition: -ms-transform 0.5s; -o-transition: -o-transform 0.5s; transition: transform 0.5s;}
+#header .btnField .menu .line{ display:block; position:absolute; width:1.6em; height:0.15em; left:50%; top:50%; margin-left:-0.8em;}
+#header .btnField .menu .line::after{ display:block; content:''; width:100%; height:100%; background:#fff; -webkit-transition: background-color 0.5s; -moz-transition: background-color 0.5s; -ms-transition: background-color 0.5s; -o-transition: background-color 0.5s; transition: background-color 0.5s;}
+#header .btnField .menu .line.line1{ margin-top:-0.6em; -webkit-transition: -webkit-transform 0.3s 0.5s; -moz-transition: -moz-transform 0.3s 0.5s; -ms-transition: -ms-transform 0.3s 0.5s; -o-transition: -o-transform 0.3s 0.5s; transition: transform 0.3s 0.5s;}
+#header .btnField .menu .line.line2{ margin-top:0em; -webkit-transition: opacity 0.3s 0.5s; -moz-transition: opacity 0.3s 0.5s; -ms-transition: opacity 0.3s 0.5s; -o-transition: opacity 0.3s 0.5s; transition: opacity 0.3s 0.5s;}
+#header .btnField .menu .line.line3{ margin-top:0.5em; -webkit-transition: -webkit-transform 0.3s 0.5s; -moz-transition: -moz-transform 0.3s 0.5s; -ms-transition: -ms-transform 0.3s 0.5s; -o-transition: -o-transform 0.3s 0.5s; transition: transform 0.3s 0.5s;}
+#header.show{ height:100%; z-index:2}
+#header .btnField.show{ opacity:1;}
+#header .btnField.show .menu{ pointer-events:auto;}
+#header .btnField.show .back{ pointer-events:auto;}
+
+#header .btnField .menu.current{ z-index:10}
+#header .btnField .menu.current span{
+	-webkit-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);
+	-ms-transform:rotate(90deg);
+	-o-transform:rotate(90deg);
+	transform:rotate(90deg);
+}
+#header .btnField .menu.current .line::after{ background-color:#fff;}
+#header .btnField .menu.current .line.line1{
+	-webkit-transform:rotate(-45deg) translateY(0.4em) translateX(-0.4em);
+	-moz-transform:rotate(-45deg) translateY(0.4em) translateX(-0.4em);
+	-ms-transform:rotate(-45deg) translateY(0.4em) translateX(-0.4em);
+	-o-transform:rotate(-45deg) translateY(0.4em) translateX(-0.4em);
+	transform:rotate(-45deg) translateY(0.4em) translateX(-0.4em);	
+}
+#header .btnField .menu.current .line.line2{ opacity:0;}
+#header .btnField .menu.current .line.line3{
+	-webkit-transform:rotate(45deg) translateY(-0.4em) translateX(-0.4em);
+	-moz-transform:rotate(45deg) translateY(-0.4em) translateX(-0.4em);
+	-ms-transform:rotate(45deg) translateY(-0.4em) translateX(-0.4em);
+	-o-transform:rotate(45deg) translateY(-0.4em) translateX(-0.4em);
+	transform:rotate(45deg) translateY(-0.4em) translateX(-0.4em);
+}
+
+#nav{ position:absolute; top:0; left:0;right:0; bottom:0; background:rgba(0,0,0,0.8); display:none; z-index:5}
+#nav .navlist{ padding:10em 0 0}
+#nav .navlist a{ display:block; font-size:1.9em; color:#fff; padding:0.3em 0; text-align:center}
+#nav .navlist span{ display:block; padding:1.5em 0}
+#nav .navlist span i{ display:block; width:1.8em; height:1.8em; margin:0 auto}
+#nav .navlist span i svg{ display:block; width:100%; height:100%; fill:#fff}
+#nav.show{ display:block; 
+	-webkit-animation: show 1s ease-out both;
+	-moz-animation: show 1s ease-out both;
+	-ms-animation: show 1s ease-out both;
+	-o-animation: show 1s ease-out both;
+	animation: show 1s ease-out both;
+}
+
+
+
+#fastNav{ position:fixed; z-index:6; bottom:1.6em; right:1.6em; opacity:0; -webkit-transition:opacity 1s; -moz-transition:opacity 1s; -ms-transition:opacity 1s; -o-transition: opacity 1s; transition:opacity 1s; pointer-events:none; width:3.5em; height:3.5em; z-index:1;}
+#fastNav .btns{ width:100%; height:100%; position:relative; z-index:2;}
+#fastNav .btns .btn{ display:block; width:100%; height:100%; background:#00a696; position:relative; border-radius:5em; -webkit-transition:-webkit-transform 0.5s; -moz-transition:-moz-transform 0.5s; -ms-transition:-ms-transform 0.5s; -o-transition:-o-transform 0.5s; transition:transform 0.5s;}
+#fastNav .btns .btn i{ -webkit-transition:opacity 0.5s; -moz-transition:opacity 0.5s; -ms-transition:opacity 0.5s; -o-transition:opacity 0.5s; transition:opacity 0.5s;}
+#fastNav .btns .btn i:nth-child(1){ display:block; width:0.4em; height:0.4em; border-radius:0.4em; background:#fff; position:absolute; left:50%; top:50%; margin:-0.2em 0 0 -0.2em;}
+#fastNav .btns .btn i:nth-child(1)::before{ display:block; content:''; width:0.4em; height:0.4em; border-radius:0.4em; background:#fff; position:absolute; left:-0.7em; top:0;}
+#fastNav .btns .btn i:nth-child(1)::after{ display:block; content:''; width:0.4em; height:0.4em; border-radius:0.4em; background:#fff; position:absolute; left:0.7em; top:0;}
+
+#fastNav .btns .btn i:nth-child(2){ display:block; width:1.6em; height:1.6em; position:absolute; left:50%; top:50%; margin:-0.8em 0 0 -0.8em; opacity:0;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-ms-transform:rotate(-45deg);-o-transform:rotate(-45deg);transform:rotate(-45deg);}
+#fastNav .btns .btn i:nth-child(2)::before{ display:block; content:''; position:absolute; height:0.2em; top:50%; left:0; right:0; margin-top:-0.1em; background:#fff;}
+#fastNav .btns .btn i:nth-child(2)::after{ display:block; content:''; position:absolute; width:0.2em; top:0; bottom:0; left:50%; margin-left:-0.1em; background:#fff;}
+
+#fastNav .list{ width:100%; height:100%; position:absolute; left:0; top:0; z-index:1;}
+#fastNav .list ul{ width:100%; height:100%; position:relative;}
+#fastNav .list ul li{ width:100%; height:100%; position:absolute;}
+#fastNav .list ul li .btn{ display:block; width:100%; height:100%; position:relative; background:#00a696; border-radius:3em;}
+#fastNav .list ul li .btn i{ display:block; width:2.6em; height:2.6em; position:absolute; left:50%; top:50%; margin:-1.3em 0 0 -1.3em; text-align:center}
+#fastNav .list ul li .btn svg{ display:block; width:100%; height:100%; fill:#fff;}
+#fastNav .list ul li .btn.disable svg{ fill:rgba(255,255,255,0.3);}
+#fastNav .list ul li .btn i small{ font-size:1.6em; color:#fff; line-height:1.625em; font-style:normal}
+
+
+#fastNav .list ul li:nth-child(1){ -webkit-transform:translate(0,0); -moz-transform:translate(0,0); -ms-transform:translate(0,0); -o-transform:translate(0,0); transform:translate(0,0); -webkit-transition:-webkit-transform 0.5s 0.53s; -moz-transition:-moz-transform 0.5s 0.53s; -ms-transition:-ms-transform 0.5s 0.53s; -o-transition:-o-transform 0.5s 0.53s; transition:transform 0.5s 0.53s;}
+#fastNav .list ul li:nth-child(2){ -webkit-transform:translate(0,0); -moz-transform:translate(0,0); -ms-transform:translate(0,0); -o-transform:translate(0,0); transform:translate(0,0); -webkit-transition:-webkit-transform 0.5s 0.45s; -moz-transition:-moz-transform 0.5s 0.45s; -ms-transition:-ms-transform 0.5s 0.45s; -o-transition:-o-transform 0.5s 0.45s; transition:transform 0.5s 0.45s;}
+#fastNav .list ul li:nth-child(3){ -webkit-transform:translate(0,0); -moz-transform:translate(0,0); -ms-transform:translate(0,0); -o-transform:translate(0,0); transform:translate(0,0); -webkit-transition:-webkit-transform 0.5s 0.35s; -moz-transition:-moz-transform 0.5s 0.35s; -ms-transition:-ms-transform 0.5s 0.35s; -o-transition:-o-transform 0.5s 0.35s; transition:transform 0.5s 0.35s;}
+#fastNav .list ul li:nth-child(4){ -webkit-transform:translate(0,0); -moz-transform:translate(0,0); -ms-transform:translate(0,0); -o-transform:translate(0,0); transform:translate(0,0); -webkit-transition:-webkit-transform 0.5s 0.35s; -moz-transition:-moz-transform 0.5s 0.35s; -ms-transition:-ms-transform 0.5s 0.35s; -o-transition:-o-transform 0.5s 0.35s; transition:transform 0.5s 0.35s;}
+#fastNav .list ul li:nth-child(5){ -webkit-transform:translate(0,0); -moz-transform:translate(0,0); -ms-transform:translate(0,0); -o-transform:translate(0,0); transform:translate(0,0); -webkit-transition:-webkit-transform 0.5s 0.35s; -moz-transition:-moz-transform 0.5s 0.35s; -ms-transition:-ms-transform 0.5s 0.35s; -o-transition:-o-transform 0.5s 0.35s; transition:transform 0.5s 0.35s;}
+
+#fastNav.open .btns .btn{ -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); -ms-transform:rotate(90deg); -o-transform:rotate(90deg); transform:rotate(90deg);}
+#fastNav.open .btns .btn i:nth-child(1){ opacity:0;}
+#fastNav.open .btns .btn i:nth-child(2){ opacity:1;}
+
+#fastNav.open .list ul li:nth-child(1){ -webkit-transform:translate(-11em,0); -moz-transform:translate(-11em,0); -ms-transform:translate(-11em,0); -o-transform:translate(-11em,0); transform:translate(-11em,0); -webkit-transition:-webkit-transform 0.5s; -moz-transition:-moz-transform 0.5s; -ms-transition:-ms-transform 0.5s; -o-transition:-o-transform 0.5s; transition:transform 0.5s;}
+#fastNav.open .list ul li:nth-child(2){ -webkit-transform:translate(-10em,-4em); -moz-transform:translate(-10em,-4em); -ms-transform:translate(-10em,-4em); -o-transform:translate(-10em,-4em); transform:translate(-10em,-4em); -webkit-transition:-webkit-transform 0.5s 0.2s; -moz-transition:-moz-transform 0.5s 0.2s; -ms-transition:-ms-transform 0.5s 0.2s; -o-transition:-o-transform 0.5s 0.2s; transition:transform 0.5s 0.2s;}
+#fastNav.open .list ul li:nth-child(3){ -webkit-transform:translate(-7.5em,-7.5em); -moz-transform:translate(-7.5em,-7.5em); -ms-transform:translate(-7.5em,-7.5em); -o-transform:translate(-7.5em,-7.5em); transform:translate(-7.5em,-7.5em); -webkit-transition:-webkit-transform 0.5s 0.35s; -moz-transition:-moz-transform 0.5s 0.35s; -ms-transition:-ms-transform 0.5s 0.35s; -o-transition:-o-transform 0.5s 0.35s; transition:transform 0.5s 0.35s;}
+
+#fastNav.open .list ul li:nth-child(4){ -webkit-transform:translate(-4em,-10em); -moz-transform:translate(-4em,-10em); -ms-transform:translate(-4em,-10em); -o-transform:translate(-4em,-10em); transform:translate(-4em,-10em); -webkit-transition:-webkit-transform 0.5s 0.35s; -moz-transition:-moz-transform 0.5s 0.35s; -ms-transition:-ms-transform 0.5s 0.35s; -o-transition:-o-transform 0.5s 0.35s; transition:transform 0.5s 0.35s;}
+
+#fastNav.open .list ul li:nth-child(5){ -webkit-transform:translate(0em,-11em); -moz-transform:translate(0em,-11em); -ms-transform:translate(0em,-11em); -o-transform:translate(0em,-11em); transform:translate(0em,-11em); -webkit-transition:-webkit-transform 0.5s 0.35s; -moz-transition:-moz-transform 0.5s 0.35s; -ms-transition:-ms-transform 0.5s 0.35s; -o-transition:-o-transform 0.5s 0.35s; transition:transform 0.5s 0.35s;}
+
+#fastNav.show{ opacity:1; pointer-events:auto;}
+
+
+
+
+@-webkit-keyframes blink{0% { opacity:0;} 50%{ opacity:1;} 100% { opacity:0;}}
+@-moz-keyframes blink{0% { opacity:0;} 50%{ opacity:1;} 100% { opacity:0;}}
+@-ms-keyframes blink{0% { opacity:0;} 50%{ opacity:1;} 100% { opacity:0;}}
+@-o-keyframes blink{0% { opacity:0;} 50%{ opacity:1;} 100% { opacity:0;}}
+@keyframes blink{0% { opacity:0;} 50%{ opacity:1;} 100% { opacity:0;}}
+
+@-webkit-keyframes hide{from { opacity:1;}to { opacity:0;}}
+@-moz-keyframes hide{from { opacity:1;}to { opacity:0;}}
+@-ms-keyframes hide{from { opacity:1;}to { opacity:0;}}
+@-o-keyframes hide{from { opacity:1;}to { opacity:0;}}
+@keyframes hide{from { opacity:1;}to { opacity:0;}}
+
+@-webkit-keyframes show{from { opacity:0;}to { opacity:1;}}
+@-moz-keyframes show{from { opacity:0;}to { opacity:1;}}
+@-ms-keyframes show{from { opacity:0;}to { opacity:1;}}
+@-o-keyframes show{from { opacity:0;}to { opacity:1;}}
+@keyframes show{from { opacity:0;}to { opacity:1;}}
+
+
+
+
+.resignPannel{ position:fixed; top:0; left:0;right:0; bottom:0; background:rgba(0,0,0,0.8); z-index:30; display:none}
+.resignPannel.resignAct{ display:block}
+.resignPannel .resignArea{ position:absolute; left:0;right:0; top:50%; margin:-22em  2em 0; background: url(../img/cydj.jpg) 0 0 no-repeat; background-size:cover;}
+.resignPannel .resignArea .formField{ width:100%; height:100%; position:relative;}
+
+.resignPannel .resignArea .formField .djclose{ position:absolute; right:0.5em; top:0.5em; width:3.5em; height:3.5em; border:2px solid #b3b3b3; border-radius:5em; z-index:3; }
+.resignPannel .resignArea .formField .djclose i{ width:3.5em; height:3.5em; position:relative; display:block}
+.resignPannel .resignArea .formField .djclose i::before{  content:''; width:0.15em; height:1.6em; position:absolute; left:50%; top:50%; margin:-0.8em 0 0 -0.07em; background:rgba(179,179,179,1);;
+-webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg); -ms-transform:rotate(-45deg); -o-transform:rotate(-45deg);transform:rotate(-45deg); 
+}
+.resignPannel .resignArea .formField .djclose i::after{ content:''; width:0.15em; height:1.6em; position:absolute; left:50%; top:50%; margin:-0.8em 0 0 -0.07em; background:rgba(179,179,179,1);
+-webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg); -o-transform:rotate(45deg);transform:rotate(45deg); }
+
+
+.resignPannel .resignArea .formField h3{ font-size:1.8em; font-weight:bold; color:#000000; padding:1em 0; text-align:center}
+.resignPannel .resignArea .formField ul{ padding: 0 3.2em}
+.resignPannel .resignArea .formField ul li{ border-bottom:1px solid #b9b9b9; padding:0.6em 0}
+.resignPannel .resignArea .formField ul li .text1{ height:1.8em; line-height:1.8em; color:#464545; border:0 none; background:0 none; padding:0; margin:0; font-size:1.4em; width:100%}
+.resignPannel .resignArea .formField ul li .text2{font-size:1.4em; height:3em; width:100%; background:none; border:none; padding:0; margin:0;line-height:1.8em; color:#464545;width:100% }
+
+.resignPannel .resignArea .formField .info{ padding:1em 1em  2em 1.5em }
+.resignPannel .resignArea .formField .info dl{zoom:1}
+.resignPannel .resignArea .formField .info dl:after{ content: "."; display: block; height: 0; clear: both; visibility: hidden; overflow:hidden;}
+.resignPannel .resignArea .formField .info dt{ float:left; width:5em; font-size:1.4em; line-height:1.5em}
+.resignPannel .resignArea .formField .info dd{ margin:0 0 0 5.1em;font-size:1.4em; line-height:1.5em}
+.resignPannel .resignArea .formField .info dd span{ font-size:1.5em;}
+
+.resignPannel .resignArea .formField .btns{ width:24em; height:3.45em; margin:0 auto; position:relative; padding:0 0 3.2em}
+.resignPannel .resignArea .formField .btns .btn1{ width:11.2em; height:3.45em;position:absolute; left:0; top:0; background:url(../img/cydj_btn1.png) 0 0 no-repeat; background-size:100% auto}
+.resignPannel .resignArea .formField .btns .btn2{ width:11.2em; height:3.45em; position:absolute; right:0; top:0; background:url(../img/cydj_btn2.png) 0 0 no-repeat; background-size:100% auto}
+.resignPannel .resignArea .formField .btns .btn{ background:0 none; border:0 none; text-align:center; line-height:2.6em; color:#fff; font-size:1.5em; width:8em; cursor:pointer;}
+
+
+.resignPannel_02{ position:fixed; top:0; left:0;right:0; bottom:0; background:rgba(0,0,0,0.8); z-index:30; display:none}
+.resignPannel_02.resignAct{ display:block}
+.resignPannel_02 .resignArea{ position:absolute; left:0;right:0; top:50%; margin:-22em  2em 0; background: url(../img/cydj.jpg) 0 0 no-repeat; background-size:cover;}
+.resignPannel_02 .resignArea .formField{ width:100%; height:100%; position:relative;}
+.resignPannel_02 .resignArea .formField .djclose{ position:absolute; right:0.5em; top:0.5em; width:3.5em; height:3.5em; border:2px solid #b3b3b3; border-radius:5em; z-index:3; }
+.resignPannel_02 .resignArea .formField .djclose i{ width:3.5em; height:3.5em; position:relative; display:block}
+.resignPannel_02 .resignArea .formField .djclose i::before{  content:''; width:0.15em; height:1.6em; position:absolute; left:50%; top:50%; margin:-0.8em 0 0 -0.07em; background:rgba(179,179,179,1);;
+-webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg); -ms-transform:rotate(-45deg); -o-transform:rotate(-45deg);transform:rotate(-45deg); 
+}
+.resignPannel_02 .resignArea .formField .djclose i::after{ content:''; width:0.15em; height:1.6em; position:absolute; left:50%; top:50%; margin:-0.8em 0 0 -0.07em; background:rgba(179,179,179,1);
+-webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg); -o-transform:rotate(45deg);transform:rotate(45deg); }
+
+.resignPannel_02 .resignArea .formField h3{font-size:1.8em; font-weight:bold; color:#000000; padding:2em 0 1em; text-align:center}
+.resignPannel_02 .resignArea .formField p{ padding:1em 2em 3em; font-size:1.4em; line-height:1.6em}
+.resignPannel_02 .resignArea .formField .pic{ padding:5em 0 5em; width:20em; margin:0 auto}
+.resignPannel_02 .resignArea .formField .pic img{ display:block; width:100%; height:auto;}
+
+
+
